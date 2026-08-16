@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Photo Quote | Brasil Auto Care CT</title>
+<meta name="description" content="Send a few photos and get a fixed price for mobile detailing in Connecticut. No visit needed, no surprise add-ons.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111110'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='19' font-weight='900' fill='%232E4A6B' text-anchor='middle'>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f2f1ec; --ink:#111110; --ink2:#26251f;
+    --steel:#2E4A6B; --steel-hi:#3d6291; --steel-lt:#8fb2d6;
+    --tx-d:rgba(17,17,16,.66); --tx-m:rgba(17,17,16,.42);
+    --line:rgba(17,17,16,.16);
+    --eo:cubic-bezier(.23,1,.32,1);
+    --disp:'Archivo',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--disp);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-weight:900;letter-spacing:-.035em;line-height:.95;text-transform:uppercase}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+  nav{position:sticky;top:0;z-index:50;height:64px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;
+    background:var(--ink);color:var(--paper);border-bottom:3px solid var(--ink)}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+  .bn{font-size:15px;font-weight:900;letter-spacing:-.02em;text-transform:uppercase;line-height:1}
+  .bs{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,241,236,.55);margin-top:3px}
+  .ph{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--paper);text-decoration:none}
+
+  .btn{padding:14px 26px;border:3px solid var(--ink);background:var(--steel);color:var(--paper);
+    font-family:var(--disp);font-size:14px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;
+    text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    box-shadow:5px 5px 0 var(--ink);
+    transition:transform 150ms var(--eo),box-shadow 150ms var(--eo);width:100%}
+  @media(hover:hover) and (pointer:fine){.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}}
+  .btn:active{transform:translate(2px,2px) scale(.99);box-shadow:2px 2px 0 var(--ink)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:5px 5px 0 var(--ink)}
+
+  main{max-width:920px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--paper);background:var(--steel);display:inline-block;padding:5px 11px;margin-bottom:18px}
+  h1.pg{font-size:clamp(36px,7vw,72px);margin-bottom:14px}
+  .lede{font-family:var(--disp);font-size:16.5px;color:var(--tx-d);max-width:560px;line-height:1.7;font-weight:400;margin-bottom:40px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid1{display:grid;grid-template-columns:1fr;gap:16px}
+
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+  .field .opt{color:var(--tx-m);font-weight:400;text-transform:none;letter-spacing:0}
+  .field input[type=text],.field input[type=tel],.field input[type=email],.field select,.field textarea{
+    border:3px solid var(--ink);background:var(--paper);color:var(--ink);
+    font-family:var(--disp);font-size:15px;padding:13px 14px;width:100%}
+  .field textarea{resize:vertical;min-height:96px;font-family:var(--disp)}
+  .field select{appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23111110' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:38px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--steel)}
+
+  fieldset{border:none;display:flex;flex-direction:column;gap:8px}
+  .rowchk{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:14px}
+  .rowchk input{width:20px;height:20px;accent-color:var(--steel);flex-shrink:0}
+
+  .card{border:3px solid var(--ink);background:var(--paper);padding:28px;box-shadow:6px 6px 0 var(--ink);margin-bottom:20px}
+  .card.dark{background:var(--ink);color:var(--paper)}
+  .card.dark label{color:var(--steel-lt)}
+  .card h2{font-size:22px;margin-bottom:6px}
+  .card .cardsub{font-family:var(--mono);font-size:11px;color:var(--tx-m);letter-spacing:.04em;margin-bottom:22px}
+  .card.dark .cardsub{color:rgba(242,241,236,.55)}
+
+  .drop{border:3px dashed var(--ink);background:transparent;padding:30px 20px;text-align:center;cursor:pointer;transition:background 150ms var(--eo),border-color 150ms var(--eo)}
+  .drop.drag{background:rgba(46,74,107,.08);border-color:var(--steel)}
+  .drop p{font-family:var(--disp);font-size:15px;font-weight:700;margin-bottom:4px}
+  .drop span{font-family:var(--mono);font-size:11px;color:var(--tx-m);text-transform:uppercase;letter-spacing:.06em}
+  .drop input{display:none}
+  .thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .thumb{position:relative;width:76px;height:76px;border:2px solid var(--ink);overflow:hidden;flex-shrink:0}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb button{position:absolute;top:2px;right:2px;width:20px;height:20px;background:var(--ink);color:var(--paper);
+    border:none;font-size:12px;font-weight:900;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+
+  .note{border:3px solid var(--ink);background:var(--steel);color:var(--paper);padding:18px 20px;
+    font-family:var(--mono);font-size:12px;line-height:1.7;letter-spacing:.02em;box-shadow:6px 6px 0 var(--ink);margin-bottom:32px}
+  .note b{color:var(--paper)}
+
+  .altrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+  .altrow a{flex:1;min-width:180px}
+
+  .confirm{display:none;border:3px solid var(--ink);background:var(--steel);color:var(--paper);padding:34px 28px;
+    box-shadow:6px 6px 0 var(--ink);text-align:left}
+  .confirm.show{display:block}
+  .confirm h2{font-size:26px;margin-bottom:10px;color:var(--paper)}
+  .confirm p{font-family:var(--disp);font-size:14.5px;color:rgba(242,241,236,.8);line-height:1.7;margin-bottom:6px}
+
+  footer{background:var(--ink);color:var(--paper);padding:26px 24px;display:flex;justify-content:space-between;
+    align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(242,241,236,.15);margin-top:40px}
+  .fc{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:rgba(242,241,236,.6)}
+  footer a{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,241,236,.6);text-decoration:none}
+
+  @media(max-width:640px){
+    nav{padding:0 16px}.ph{display:none}
+    main{padding:36px 16px 60px}
+    .grid2{grid-template-columns:1fr}
+    .card{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <div><div class="bn">Brasil Auto Care</div><div class="bs">Mobile · Connecticut</div></div></a>
+  <a href="tel:2035561023" class="ph">(203) 556-1023</a>
+</nav>
+
+<main>
+  <span class="eyebrow">Get a quote</span>
+  <h1 class="pg">Show me the car.<br>I'll tell you the price.</h1>
+  <p class="lede">A front shot, a side shot, and a photo of the worst spot inside — that's usually enough for a firm number, not an estimate that changes once I'm in your driveway.</p>
+
+  <div class="note">
+    <b>How this works:</b> fill in the form below and attach your photos, then tap "Open in email" — it'll load everything into a message ready to send from your own phone or inbox. Nothing is uploaded to a server or stored anywhere but your outgoing email. I reply with a fixed price same day, most days within a couple hours.
+  </div>
+
+  <form id="quoteForm">
+    <div class="card">
+      <h2>Your info</h2>
+      <div class="cardsub">So I know who I'm quoting and how to reach you back</div>
+      <div class="grid2">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
+      <div class="grid1" style="margin-top:16px">
+        <div class="field">
+          <label for="email">Email <span class="opt">(optional)</span></label>
+          <input type="email" id="email" name="email">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>The car</h2>
+      <div class="cardsub">Rough details help, exact ones aren't necessary</div>
+      <div class="grid2">
+        <div class="field">
+          <label for="vehicle">Year / Make / Model</label>
+          <input type="text" id="vehicle" name="vehicle" placeholder="e.g. 2019 Honda CR-V">
+        </div>
+        <div class="field">
+          <label for="town">Town</label>
+          <input type="text" id="town" name="town" placeholder="e.g. Norwalk">
+        </div>
+      </div>
+      <div class="grid1" style="margin-top:16px">
+        <div class="field">
+          <label>What does it need? <span class="opt">(check all that apply)</span></label>
+          <fieldset>
+            <label class="rowchk"><input type="checkbox" name="service" value="Refresh"> Refresh — quick interior or exterior reset</label>
+            <label class="rowchk"><input type="checkbox" name="service" value="Full detail"> Full detail — inside and out</label>
+            <label class="rowchk"><input type="checkbox" name="service" value="Decontamination"> Decontamination — paint feels rough/gritty</label>
+            <label class="rowchk"><input type="checkbox" name="service" value="Not sure"> Not sure — tell me what you'd recommend</label>
+          </fieldset>
+        </div>
+      </div>
+      <div class="grid1" style="margin-top:16px">
+        <div class="field">
+          <label for="notes">Anything I should know? <span class="opt">(optional)</span></label>
+          <textarea id="notes" name="notes" placeholder="Stains, odors, pet hair, when you'd like it done, gate code, etc."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card dark">
+      <h2>Photos</h2>
+      <div class="cardsub">Front · side · the worst corner inside — 3 to 6 photos is plenty</div>
+      <label class="drop" id="dropZone">
+        <p>Tap to choose photos</p>
+        <span>or drag them in here</span>
+        <input type="file" id="photoInput" accept="image/*" multiple>
+      </label>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+
+    <button type="submit" class="btn">Open in email</button>
+    <div class="altrow">
+      <a href="sms:2035561023" class="btn" style="background:var(--ink)">Text photos instead</a>
+      <a href="tel:2035561023" class="btn" style="background:transparent;color:var(--ink);box-shadow:5px 5px 0 var(--ink)">Just call</a>
+    </div>
+  </form>
+
+  <div class="confirm" id="confirmBox">
+    <h2>Almost there</h2>
+    <p>Your email app should now be open with your details filled in.</p>
+    <p><b>One thing email links can't do:</b> attach your photos automatically. Please attach the photos you selected before hitting send — they should still be sitting in your Photos/Downloads ready to drag in.</p>
+    <p style="margin-top:14px">Prefer not to deal with that? Text them to <b>(203) 556-1023</b> instead — same-day reply either way.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="fc">© 2026 Brasil Auto Care · Mobile across Connecticut</div>
+  <a href="index.html">Back to home</a>
+</footer>
+
+<script>
+  const dropZone=document.getElementById('dropZone');
+  const photoInput=document.getElementById('photoInput');
+  const thumbs=document.getElementById('thumbs');
+  let files=[];
+
+  function renderThumbs(){
+    thumbs.innerHTML='';
+    files.forEach((f,i)=>{
+      const url=URL.createObjectURL(f);
+      const d=document.createElement('div');
+      d.className='thumb';
+      d.innerHTML=`<img src="${url}" alt=""><button type="button" aria-label="Remove photo" data-i="${i}">×</button>`;
+      thumbs.appendChild(d);
+    });
+  }
+  thumbs.addEventListener('click',e=>{
+    const btn=e.target.closest('button[data-i]');
+    if(!btn) return;
+    files.splice(Number(btn.dataset.i),1);
+    renderThumbs();
+  });
+  photoInput.addEventListener('change',()=>{
+    files=files.concat(Array.from(photoInput.files));
+    renderThumbs();
+  });
+  ['dragover','dragenter'].forEach(evt=>dropZone.addEventListener(evt,e=>{e.preventDefault();dropZone.classList.add('drag')}));
+  ['dragleave','drop'].forEach(evt=>dropZone.addEventListener(evt,e=>{e.preventDefault();dropZone.classList.remove('drag')}));
+  dropZone.addEventListener('drop',e=>{
+    const dropped=Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/'));
+    files=files.concat(dropped);
+    renderThumbs();
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const vehicle=document.getElementById('vehicle').value.trim();
+    const town=document.getElementById('town').value.trim();
+    const notes=document.getElementById('notes').value.trim();
+    const services=Array.from(document.querySelectorAll('input[name=service]:checked')).map(c=>c.value).join(', ') || 'Not specified';
+
+    const subject=`Quote request — ${name || 'New lead'}${vehicle ? ' — '+vehicle : ''}`;
+    const bodyLines=[
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      email ? `Email: ${email}` : null,
+      `Vehicle: ${vehicle || 'Not specified'}`,
+      `Town: ${town || 'Not specified'}`,
+      `Service interest: ${services}`,
+      notes ? `Notes: ${notes}` : null,
+      '',
+      `Photos: please attach ${files.length || 0} photo(s) selected on the site before sending — they don't attach automatically from this link.`
+    ].filter(Boolean);
+
+    const mailto=`mailto:hello@brasilautocare.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href=mailto;
+    document.getElementById('confirmBox').classList.add('show');
+    document.getElementById('confirmBox').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+</script>
+</body>
+</html>
