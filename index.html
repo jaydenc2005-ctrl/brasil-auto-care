@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"AutoDetailing","name":"Brasil Auto Care","description":"Mobile auto detailing and paint decontamination serving Connecticut.","telephone":"+1-203-556-1023","email":"hello@brasilautocare.com","areaServed":[{"@type":"State","name":"Connecticut"}],"serviceType":["Mobile Detailing","Paint Decontamination","Clay Bar Treatment","Interior Detailing"],"founder":{"@type":"Person","name":"Bruno Brasil"},"priceRange":"$$","sameAs":["https://x.com/brasilautocarect"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"8"}}
+{"@context":"https://schema.org","@type":"AutoDetailing","name":"Brasil Auto Care","description":"Mobile auto detailing and paint decontamination serving Connecticut.","telephone":"+1-203-556-1023","email":"hello@brasilautocare.com","areaServed":[{"@type":"State","name":"Connecticut"}],"serviceType":["Mobile Detailing","Paint Decontamination","Clay Bar Treatment","Interior Detailing"],"founder":{"@type":"Person","name":"Bruno Brasil"},"priceRange":"$$","sameAs":["https://www.facebook.com/profile.php?id=61593584191058","https://www.instagram.com/brasilautocarect"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"8"}}
 </script>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -36,10 +36,34 @@
   .bn{font-size:15px;font-weight:900;letter-spacing:-.02em;text-transform:uppercase;line-height:1}
   .bs{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,241,236,.55);margin-top:3px}
   .nlinks{display:flex;gap:26px;list-style:none}
-  .nlinks a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(242,241,236,.7);text-decoration:none;transition:color 180ms var(--eo)}
-  @media(hover:hover) and (pointer:fine){.nlinks a:hover{color:var(--steel-lt)}}
+  .nlinks a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(242,241,236,.7);text-decoration:none;
+    position:relative;padding-bottom:4px;transition:color 180ms var(--eo)}
+  /* A hard rule that draws in, matching the world's edges — not a soft fade. */
+  .nlinks a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--steel-lt);
+    transform:scaleX(0);transform-origin:right center;transition:transform 260ms var(--eo)}
+  @media(hover:hover) and (pointer:fine){
+    .nlinks a:hover{color:var(--steel-lt)}
+    .nlinks a:hover::after{transform:scaleX(1);transform-origin:left center}
+  }
+  .nlinks a:focus-visible::after{transform:scaleX(1);transform-origin:left center}
   .nr{display:flex;align-items:center;gap:12px}
   .ph{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--paper);text-decoration:none}
+
+  /* Social — square outlines to match the brutalist chrome, not soft circles */
+  .soc-nav{display:flex;gap:8px}
+  .soc{width:34px;height:34px;flex-shrink:0;border:2px solid rgba(242,241,236,.42);
+    display:flex;align-items:center;justify-content:center;color:var(--paper);text-decoration:none;
+    transition:background 180ms var(--eo),border-color 180ms var(--eo),transform 180ms var(--eo)}
+  .soc svg{width:16px;height:16px;display:block}
+  @media(hover:hover) and (pointer:fine){
+    .soc:hover{background:var(--steel);border-color:var(--paper);transform:translate(-1px,-1px)}
+  }
+  .mob-soc{display:flex;gap:10px;margin-top:18px}
+  .mob-soc a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
+    padding:14px 0;border:2px solid rgba(242,241,236,.35);border-bottom:2px solid rgba(242,241,236,.35);
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--paper);text-decoration:none}
+  .mob-soc svg{width:15px;height:15px}
 
   .btn{padding:14px 26px;border:3px solid var(--ink);background:var(--steel);color:var(--paper);
     font-family:var(--disp);font-size:14px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;
@@ -76,6 +100,9 @@
     text-transform:uppercase;animation:slide 26s linear infinite;will-change:transform}
   @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .tk span{display:flex;gap:30px}
+  /* A moving strapline you cannot read is decoration; hovering stops it. */
+  .ticker:hover .tk,.ticker:focus-within .tk{animation-play-state:paused}
+  .ticker.rest .tk{animation-play-state:paused}
 
   /* HERO */
   .hero{position:relative;overflow:hidden;padding:64px 24px 56px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end;border-bottom:3px solid var(--ink)}
@@ -124,7 +151,7 @@
   .s h3{font-size:26px}
   .svc-price{font-family:var(--disp);font-size:24px;font-weight:900;letter-spacing:-.02em;margin:6px 0 2px}
   .svc-price-label{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(242,241,236,.55)}
-  .svc-price-num{color:#6FCF7A}
+  .svc-price-num{color:#cdd0d5}
   .s.wide h3{font-size:34px}
   .s p{font-family:var(--disp);font-size:14px;color:var(--tx-d);line-height:1.7;font-weight:400}
   .s.wide p{color:rgba(242,241,236,.72)}
@@ -173,8 +200,21 @@
     display:flex;justify-content:space-between;gap:16px;align-items:center}
   .fq i{font-family:var(--mono);font-style:normal;font-size:22px;font-weight:700;flex-shrink:0;transition:transform 250ms var(--eo)}
   .fi.open .fq i{transform:rotate(45deg)}
-  .fa{display:none;font-family:var(--disp);font-size:15px;color:var(--tx-d);line-height:1.75;padding-bottom:22px;max-width:660px;font-weight:400}
-  .fi.open .fa{display:block}
+  /* Opening was a hard cut from display:none. Grid rows animate the height
+     without measuring, and the default stays open so a failed script never
+     hides the answers. */
+  .fa{display:grid;grid-template-rows:1fr;transition:grid-template-rows 380ms var(--eo)}
+  .fa > .fa-in{overflow:hidden;min-height:0;
+    font-family:var(--disp);font-size:15px;color:var(--tx-d);line-height:1.75;max-width:660px;font-weight:400}
+  .fa > .fa-in > span{display:block;padding-bottom:22px;
+    opacity:0;transform:translateY(-6px);transition:opacity 300ms var(--eo),transform 300ms var(--eo)}
+  .js-faq .fa{grid-template-rows:0fr}
+  .js-faq .fi.open .fa{grid-template-rows:1fr}
+  .fi.open .fa > .fa-in > span{opacity:1;transform:none;transition-delay:120ms}
+  @media(prefers-reduced-motion:reduce){
+    .fa{transition:none}
+    .fa > .fa-in > span{transition:none;opacity:1;transform:none}
+  }
 
   .band{background:var(--ink);color:var(--paper);padding:64px 24px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;border-top:3px solid var(--ink)}
   .band h2{font-size:clamp(30px,5vw,58px);color:var(--paper);margin-bottom:12px}
@@ -185,17 +225,69 @@
 
   footer{background:var(--ink);color:var(--paper);padding:26px 24px;display:flex;justify-content:space-between;
     align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(242,241,236,.15)}
-  .fl{display:flex;gap:20px;list-style:none}
-  .fl a{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,241,236,.6);text-decoration:none}
+  .fl{display:flex;gap:20px;list-style:none;align-items:center}
+  .fl a{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,241,236,.6);text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px}
+  .fl a svg{width:13px;height:13px}
   @media(hover:hover) and (pointer:fine){.fl a:hover{color:var(--steel-lt)}}
   .fc{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:rgba(242,241,236,.6)}
 
   @keyframes up{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
-  .rv{opacity:0;transform:translateY(18px) scale(.98);transition:opacity 400ms var(--eo),transform 400ms var(--eo)}
+
+  /* ══ THE RAKE — light travelling across a decontaminated panel ══
+     The one authored moment. Fires once across the hero's SHOWS OFF block,
+     and again as hover feedback on a service card. Nowhere else. */
+  @keyframes rake{
+    from{transform:translate3d(-130%,0,0) skewX(-14deg)}
+    to  {transform:translate3d(340%,0,0) skewX(-14deg)}
+  }
+  h1 mark{position:relative;display:inline-block;overflow:hidden;isolation:isolate}
+  h1 mark::after{
+    content:'';position:absolute;top:-20%;bottom:-20%;left:0;width:42%;z-index:1;pointer-events:none;
+    background:linear-gradient(97deg,
+      rgba(242,241,236,0) 0%,
+      rgba(242,241,236,.10) 34%,
+      rgba(242,241,236,.92) 50%,
+      rgba(242,241,236,.10) 66%,
+      rgba(242,241,236,0) 100%);
+    transform:translate3d(-130%,0,0) skewX(-14deg);
+    animation:rake 1150ms 980ms var(--eo) both;
+  }
+
+  /* Same material as hover feedback: the block catches the light once. */
+  .s{position:relative;overflow:hidden;isolation:isolate}
+  .s::after{
+    content:'';position:absolute;top:-25%;bottom:-25%;left:0;width:38%;z-index:3;pointer-events:none;
+    background:linear-gradient(97deg,
+      rgba(242,241,236,0) 0%,
+      rgba(242,241,236,.06) 34%,
+      rgba(242,241,236,.34) 50%,
+      rgba(242,241,236,.06) 66%,
+      rgba(242,241,236,0) 100%);
+    transform:translate3d(-130%,0,0) skewX(-14deg);
+  }
+  @media(hover:hover) and (pointer:fine){
+    .s:hover::after{animation:rake 900ms var(--eo)}
+  }
+
+  /* ══ REVEALS — differentiated by what the element is ══ */
+  /* Text rises. */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity 420ms var(--eo),transform 420ms var(--eo)}
   .rv.vis{opacity:1;transform:none}
+  /* A hard-shadowed block is a physical object: it gets set down onto its
+     own shadow rather than fading up like a paragraph. */
+  .rv.block{transform:translate3d(-11px,-11px,0)}
+  .rv.block.vis{transform:none;transition-duration:520ms}
+  /* Long-form reading: movement here is noise, so opacity only. */
+  .rv.read{transform:none}
   .d2{transition-delay:70ms}.d3{transition-delay:140ms}.d4{transition-delay:210ms}
-  @media(prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity 200ms ease}.tk{animation:none}
-    @keyframes up{from{opacity:0}to{opacity:1}}}
+
+  @media(prefers-reduced-motion:reduce){
+    .rv,.rv.block{transform:none;transition:opacity 200ms ease}
+    .tk{animation:none}
+    h1 mark::after,.s::after{display:none}
+    @keyframes up{from{opacity:0}to{opacity:1}}
+  }
 
   /* ── About / owner story ── */
   .about{margin-top:44px;display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:start}
@@ -227,7 +319,7 @@
   }
 
   @media(max-width:768px){
-    nav{padding:0 16px}.nlinks,.ph,.nr .btn{display:none}.tog{display:flex}
+    nav{padding:0 16px}.nlinks,.ph,.nr .btn,.soc-nav{display:none}.tog{display:flex}
     .hero{grid-template-columns:1fr;padding:40px 16px 44px;gap:30px}
     h1{font-size:52px}.lede{font-size:16px}
     .cta-row .btn{width:100%}
@@ -238,8 +330,6 @@
     .band-side .btn{width:100%}
     footer{justify-content:center;text-align:center}
   }
-
-
 
   /* Brand mark — fixed image, same everywhere, no color logic */
   .logo{display:inline-block;flex-shrink:0;background-image:var(--logo-img);background-size:contain;background-repeat:no-repeat;background-position:center}
@@ -279,6 +369,14 @@
     <div><div class="bn">Brasil Auto Care</div><div class="bs">Mobile · Connecticut</div></div></a>
   <ul class="nlinks"><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul>
   <div class="nr">
+    <div class="soc-nav">
+      <a class="soc" href="https://www.facebook.com/profile.php?id=61593584191058" target="_blank" rel="noopener" aria-label="Brasil Auto Care on Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.6C16.6 3.55 15.4 3.45 14 3.45c-2.9 0-4.9 1.75-4.9 5v2.45H6.4V14h2.7v7h4.4z"/></svg>
+      </a>
+      <a class="soc" href="https://www.instagram.com/brasilautocarect" target="_blank" rel="noopener" aria-label="Brasil Auto Care on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
     <a href="tel:2035561023" class="ph">(203) 556-1023</a>
     <a href="https://brasil.schedulingkit.com/b/brasil" class="btn sm" target="_blank" rel="noopener">Book now</a>
     <button class="tog" id="tog" aria-expanded="false" aria-label="Open menu"><span></span></button>
@@ -286,7 +384,14 @@
 </nav>
 <div class="mob" id="mob">
   <a href="#services">Services</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
-  <a href="tel:2035561023">Call (203) 556-1023</a><a href="https://brasil.schedulingkit.com/b/brasil" class="btn" target="_blank" rel="noopener">Book now</a>
+  <a href="tel:2035561023">Call (203) 556-1023</a>
+  <div class="mob-soc">
+    <a href="https://www.facebook.com/profile.php?id=61593584191058" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.6C16.6 3.55 15.4 3.45 14 3.45c-2.9 0-4.9 1.75-4.9 5v2.45H6.4V14h2.7v7h4.4z"/></svg>Facebook</a>
+    <a href="https://www.instagram.com/brasilautocarect" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+  </div>
+  <a href="https://brasil.schedulingkit.com/b/brasil" class="btn" target="_blank" rel="noopener">Book now</a>
 </div>
 
 <div class="ticker" aria-hidden="true">
@@ -323,7 +428,7 @@
   <p class="sub rv">Basic gets it clean. Premium goes deeper — everything in gold is what Premium adds on top.</p>
   <div class="svc">
 
-    <div class="s third rv">
+    <div class="s third rv block">
       <div class="no">01 / Full · 3 hr</div>
       <h3>Full Detail<br>Basic</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$120</span></div>
@@ -338,7 +443,7 @@
       <a href="https://brasil.schedulingkit.com/b/brasil" class="btn inv" target="_blank" rel="noopener">Book it</a>
     </div>
 
-    <div class="s third rv d2">
+    <div class="s third rv block d2">
       <div class="no">02 / Full · 4 hr · Flagship</div>
       <h3>Full Detail<br>Premium</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$190</span></div>
@@ -353,7 +458,7 @@
       <a href="https://brasil.schedulingkit.com/b/brasil" class="btn inv" target="_blank" rel="noopener">Book it</a>
     </div>
 
-    <div class="s third rv">
+    <div class="s third rv block">
       <div class="no">03 / Exterior · 1 hr</div>
       <h3>Exterior<br>Basic</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$60</span></div>
@@ -368,7 +473,7 @@
       <a href="https://brasil.schedulingkit.com/b/brasil" class="btn inv" target="_blank" rel="noopener">Book it</a>
     </div>
 
-    <div class="s third rv d2">
+    <div class="s third rv block d2">
       <div class="no">04 / Exterior · 2 hr</div>
       <h3>Exterior<br>Premium</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$100</span></div>
@@ -378,12 +483,12 @@
         <li class="up">Iron decontamination</li>
         <li class="up">Clay bar treatment</li>
         <li class="up">Paint sealant for lasting gloss</li>
-        <li class="up">Water &amp; power supplied</li>
+        <li class="up">Bug &amp; tar removal</li>
       </ul>
       <a href="https://brasil.schedulingkit.com/b/brasil" class="btn inv" target="_blank" rel="noopener">Book it</a>
     </div>
 
-    <div class="s third rv">
+    <div class="s third rv block">
       <div class="no">05 / Interior · 2 hr</div>
       <h3>Interior<br>Basic</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$95</span></div>
@@ -398,7 +503,7 @@
       <a href="https://brasil.schedulingkit.com/b/brasil" class="btn inv" target="_blank" rel="noopener">Book it</a>
     </div>
 
-    <div class="s third rv d2">
+    <div class="s third rv block d2">
       <div class="no">06 / Interior · 3 hr</div>
       <h3>Interior<br>Premium</h3>
       <div class="svc-price"><span class="svc-price-label">Starting at</span> <span class="svc-price-num">$130</span></div>
@@ -421,7 +526,7 @@
   <span class="eyebrow rv">About</span>
   <h2 class="h2 rv">The guy doing<br>the work.</h2>
   <div class="about">
-    <div class="about-side rv">
+    <div class="about-side rv block">
       <div class="who">Bruno<br>Brasil</div>
       <div class="role">Owner &amp; detailer</div>
       <p style="font-family:var(--disp);font-size:14px;line-height:1.7;color:rgba(242,241,236,.78)">Every car that goes through Brasil Auto Care is handled by me personally. No rotating crew, no handoffs.</p>
@@ -432,7 +537,7 @@
         <li>No swirls, no shortcuts</li>
       </ul>
     </div>
-    <div class="about-body rv d2">
+    <div class="about-body rv read d2">
       <p>Hey, I'm Bruno Brasil, the owner of Brasil Auto Care and the person who'll personally be taking care of your car.</p>
       <p>This started the way a lot of good things do: with something that bugged me. I've always loved keeping my cars clean, going back to my first car, a 2014 Chevy Cruze. There was just something about driving a spotless car, getting compliments on how it looked and smelled, taking a regular car and making it feel like something special. But every time I ran my car through a drive-thru wash, I'd look at it in the sunlight afterward and just feel let down. Swirl marks. Water spots. Little scratches from those big brushes grinding dirt into the paint. It felt wrong to watch something I cared about get worn down by places that were just rushing through it.</p>
       <p>So I decided to learn how to do it right. I spent hours studying, watching detailers, learning safe wash techniques, and understanding the products, the chemicals, the tools, and how to approach each vehicle the right way. A close friend who details his own cars helped me get started, and from there it turned into something I couldn't stop chasing: getting a little better with every car, paying attention to the details most places skip.</p>
@@ -460,13 +565,13 @@
   <h2 class="h2 rv">Asked<br>constantly.</h2>
   <div class="faq">
     <div class="fi"><button class="fq">What does mobile detailing cost in CT? <i>+</i></button>
-      <div class="fa">Exterior details start at $60, interior details start at $95, and a full interior-and-exterior detail starts at $120, up to $190 for the full premium package with paint decontamination. Exact pricing depends on size and condition, which is why we quote from photos before booking.</div></div>
+      <div class="fa"><div class="fa-in"><span>Exterior details start at $60, interior details start at $95, and a full interior-and-exterior detail starts at $120, up to $190 for the full premium package with paint decontamination. Exact pricing depends on size and condition, which is why we quote from photos before booking.</span></div></div></div>
     <div class="fi"><button class="fq">Do you need my water and power? <i>+</i></button>
-      <div class="fa">No. We roll in self-contained, so apartment lots, office garages and job sites work as well as a driveway.</div></div>
+      <div class="fa"><div class="fa-in"><span>Power, no — I carry my own, so no outlet needed. Water, yes for now: I'll need access to an outdoor spigot, which makes a driveway with a hose bib the easiest setup. A mobile water tank is coming soon, and once it's in the van I'll be fully self-contained — apartment lots, office garages and job sites will work just as well.</span></div></div></div>
     <div class="fi"><button class="fq">What is clay bar decontamination? <i>+</i></button>
-      <div class="fa">Washing removes dirt sitting on the paint, but not the brake dust, rail dust, sap and industrial fallout bonded into it — that's the gritty texture you feel on a clean panel. I lubricate the surface and glide a clay bar across it in sections, shearing those particles off the clear coat. The paint ends up smooth to the touch, looks deeper, and any sealant applied after it bonds properly instead of trapping grit underneath.</div></div>
-    <div class="fi"><button class="fq">Which towns do you cover? <i>+</i></button>
-      <div class="fa">Stamford, Norwalk, Bridgeport, Fairfield, Westport, Danbury, Milford, New Haven, Waterbury and Hartford regularly. Outside those, ask — travel usually still works.</div></div>
+      <div class="fa"><div class="fa-in"><span>Washing removes dirt sitting on the paint, but not the brake dust, rail dust, sap and industrial fallout bonded into it — that's the gritty texture you feel on a clean panel. I lubricate the surface and glide a clay bar across it in sections, shearing those particles off the clear coat. The paint ends up smooth to the touch, looks deeper, and any sealant applied after it bonds properly instead of trapping grit underneath.</span></div></div></div>
+    <div class="fi"><button class="fq">Which areas do you cover? <i>+</i></button>
+      <div class="fa"><div class="fa-in"><span>Fairfield County is home base — Stamford, Norwalk, Bridgeport, Fairfield, Westport, Danbury and the towns around them. I'm willing to travel further than that, so if you're outside the county just ask and we'll usually make it work.</span></div></div></div>
   </div>
 </section>
 
@@ -485,7 +590,7 @@
 <footer>
   <div style="display:flex;align-items:center;gap:10px"><span class="logo foot" role="img" aria-label="Brasil Auto Care"></span>
     <span style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase">Brasil Auto Care</span></div>
-  <ul class="fl"><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="https://x.com/brasilautocarect" target="_blank" rel="noopener">@brasilautocarect</a></li></ul>
+  <ul class="fl"><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="https://www.instagram.com/brasilautocarect" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>@brasilautocarect</a></li></ul>
   <div class="fc">© 2026 · Mobile across Connecticut</div>
 </footer>
 
@@ -495,7 +600,19 @@
   tog.addEventListener('click',()=>set(!mob.classList.contains('open')));
   mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
   addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
-  document.querySelectorAll('.fq').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+  // Answers are open by default in CSS so a failed script never hides them;
+  // this class hands control to the accordion once JS is confirmed running.
+  document.querySelector('.faq').classList.add('js-faq');
+  document.querySelectorAll('.fq').forEach(q=>{
+    const item=q.parentElement, panel=item.querySelector('.fa');
+    q.setAttribute('aria-expanded','false');
+    panel.id=panel.id||('fa-'+Math.random().toString(36).slice(2,7));
+    q.setAttribute('aria-controls',panel.id);
+    q.addEventListener('click',()=>{
+      const open=item.classList.toggle('open');
+      q.setAttribute('aria-expanded',String(open));
+    });
+  });
   // Hero background: crossfade through the clips, then loop
   (function(){
     const vids=[...document.querySelectorAll('.vbg video')];
@@ -549,6 +666,24 @@
 
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // Looping motion is work the browser does forever. Neither the ticker nor
+  // four background videos earn that once they are scrolled off screen.
+  (function(){
+    const tick=document.querySelector('.ticker');
+    if(tick&&'IntersectionObserver' in window){
+      new IntersectionObserver(es=>es.forEach(e=>tick.classList.toggle('rest',!e.isIntersecting)),
+        {threshold:0}).observe(tick);
+    }
+    const hero=document.querySelector('.hero');
+    const vids=[...document.querySelectorAll('.vbg video')];
+    if(hero&&vids.length&&'IntersectionObserver' in window){
+      new IntersectionObserver(es=>es.forEach(e=>{
+        if(e.isIntersecting){ const v=vids.find(x=>x.classList.contains('on')); if(v&&v.paused) v.play().catch(()=>{}); }
+        else vids.forEach(v=>v.pause());
+      }),{threshold:0}).observe(hero);
+    }
+  })();
 </script>
 </body>
 </html>
