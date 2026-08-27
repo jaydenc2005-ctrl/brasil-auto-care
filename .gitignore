@@ -9,7 +9,7 @@ quoteme.txt
 # tooling - the site serves the repo root publicly, so keep these out
 .mcp.json
 scripts/
-Update videos.bat
+*.bat
 
 # source masters: these .mov files are already published as .mp4
 video/img_9141.mov
