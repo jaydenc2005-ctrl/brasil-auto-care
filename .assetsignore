@@ -3,3 +3,13 @@
 .wrangler
 .wrangler/**
 .DS_Store
+.gitignore
+.mcp.json
+scripts
+scripts/**
+*.bat
+index.html.txt
+quoteme.txt
+index.html.bak-*
+video/*.mov
+video/*.MOV
