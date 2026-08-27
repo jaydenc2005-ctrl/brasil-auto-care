@@ -621,7 +621,8 @@
     if(!vids.length) return;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const RATE=0.75;
+    const RATE=0.75;   // slightly slowed - clips are cut to suit this
+    const FADE=900;    // must match the opacity transition in the CSS above
     let i=0, timer=null;
     const play=v=>{ v.playbackRate=RATE; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
     vids.forEach(v=>{
@@ -638,22 +639,26 @@
       play(nxt);
       nxt.classList.add('on');
       cur.classList.remove('on');
-      setTimeout(()=>{ cur.pause(); cur.currentTime=0; }, 900);
+      // Hold the outgoing clip until the fade has fully finished, so it is
+      // never yanked out from under a half-faded frame.
+      setTimeout(()=>{ if(cur!==vids[i]){ cur.pause(); cur.currentTime=0; } }, FADE);
       i=(i+1)%vids.length;
       schedule();
     };
 
-    // Timer drives the cycle so a stalled clip can't freeze the rotation;
-    // 'ended' just advances early when a clip is shorter than the window.
+    // The timer drives the cycle, starting the fade early enough that it lands
+    // exactly as the clip runs out - so nothing ever sits on a frozen last frame.
     const schedule=()=>{
       const v=vids[i];
-      const dur=(v.duration && isFinite(v.duration)) ? (v.duration/RATE)*1000 : 4200;
-      timer=setTimeout(advance, Math.max(400, dur-250));
+      const dur=(v.duration && isFinite(v.duration)) ? (v.duration/RATE)*1000 : 4000;
+      timer=setTimeout(advance, Math.max(400, dur-FADE));
     };
 
+    // Only the clip actually on screen may end the cycle. Without this guard the
+    // outgoing clip's own 'ended' fires mid-fade and cuts the incoming one short.
     vids.forEach(v=>{
-      v.addEventListener('ended', advance);
-      v.addEventListener('error', advance);
+      v.addEventListener('ended',()=>{ if(v===vids[i]) advance(); });
+      v.addEventListener('error',()=>{ if(v===vids[i]) advance(); });
     });
 
     play(vids[0]);
