@@ -11,9 +11,8 @@ quoteme.txt
 scripts/
 *.bat
 
-# source masters: these .mov files are already published as .mp4
-video/img_9141.mov
-video/img_9160.mov
-video/img_9169.mov
-video/img_9241__1_.mov
-video/MVI_1177.MOV
+# source masters: the script converts these to .mp4, so the .mov never ships.
+# Pattern, not a filename list - a named list misses every new clip.
+video/*.mov
+video/*.MOV
+video/*.converting.mp4
