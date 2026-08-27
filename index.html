@@ -407,6 +407,7 @@
     <video id="v1" muted playsinline preload="auto"><source src="video/img_9160.mp4" type="video/mp4"></video>
     <video id="v2" muted playsinline preload="auto"><source src="video/img_9169.mp4" type="video/mp4"></video>
     <video id="v3" muted playsinline preload="auto"><source src="video/img_9241__1_.mp4" type="video/mp4"></video>
+    <video id="v4" muted playsinline preload="auto"><source src="video/MVI_1177.mp4" type="video/mp4"></video>
   </div>
   <div>
     <span class="logo hero" role="img" aria-label="Brasil Auto Care"></span>
@@ -646,7 +647,7 @@
     const schedule=()=>{
       const v=vids[i];
       const dur=(v.duration && isFinite(v.duration)) ? (v.duration/RATE)*1000 : 4200;
-      timer=setTimeout(advance, Math.max(2400, dur-250));
+      timer=setTimeout(advance, Math.max(400, dur-250));
     };
 
     vids.forEach(v=>{

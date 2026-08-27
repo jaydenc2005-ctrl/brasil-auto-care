@@ -1,0 +1,19 @@
+# local backups and logs
+index.html.bak-*
+scripts/*.log
+
+# working files, not part of the site
+index.html.txt
+quoteme.txt
+
+# tooling - the site serves the repo root publicly, so keep these out
+.mcp.json
+scripts/
+Update videos.bat
+
+# source masters: these .mov files are already published as .mp4
+video/img_9141.mov
+video/img_9160.mov
+video/img_9169.mov
+video/img_9241__1_.mov
+video/MVI_1177.MOV
